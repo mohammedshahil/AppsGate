@@ -1,0 +1,28 @@
+<odoo>
+    <record id="sale_advance_payment_wizard_view_form" model="ir.ui.view">
+        <field name="name">sale.advance.payment.wizard.view.form</field>
+        <field name="model">sale.advance.payment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Sale Advance Payment Wizard">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="credit_account_id" />
+                            <field name="sale_order_id" invisible="1" />
+                            <field name="currency_id" invisible="1" />
+                            <field name="amount" />
+                        </group>
+                        <group>
+                            <field name="journal_id" />
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="create_advance_payment" string="Create Payment"
+                            class="btn-primary" type="object" />
+                        <button string="Cancel" class="btn-secondary" special="cancel" />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
