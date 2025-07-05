@@ -1,0 +1,16 @@
+<odoo>
+    <record id="view_order_form_inherit_dynamic_sale_discount" model="ir.ui.view">
+        <field name="name">view.order.form.inherit.dynamic.sale.discount</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="button_apply_discount" string="Apply Discount" type="object"
+                    class="oe_highlight" />
+            </xpath>
+            <field name="payment_term_id" position="after">
+                <field name="discount_rule_id" />
+            </field>
+        </field>
+    </record>
+</odoo>
