@@ -1,0 +1,22 @@
+<odoo>
+    <record id="purchase_order_form_inherit_purchase_approval" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.purchase.approval</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <button name="button_approve" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </button>
+            <xpath expr="//header" position="inside">
+                <button name="button_approve_level1" string="First Approval" type="object"
+                    groups="ag_purchase_approval.group_purchase_level1_approver"
+                    invisible="state != 'to approve'"
+                    class="oe_highlight" />
+                <button name="button_approve_level2" string="Second Approval" type="object"
+                    groups="ag_purchase_approval.group_purchase_level2_approver"
+                    invisible="state != 'approved_level1'"
+                    class="oe_highlight" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

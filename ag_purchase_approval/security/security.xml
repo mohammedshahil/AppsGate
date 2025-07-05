@@ -1,0 +1,9 @@
+<odoo>
+    <record id="group_purchase_level1_approver" model="res.groups">
+        <field name="name">Purchase Level 1 Approver</field>
+    </record>
+
+    <record id="group_purchase_level2_approver" model="res.groups">
+        <field name="name">Purchase Level 2 Approver</field>
+    </record>
+</odoo>
