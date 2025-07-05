@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        <template id="report_sale_profitability">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Sales Profitability Report</h2>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Order Reference</th>
+                                    <th>Customer</th>
+                                    <th>Order Date</th>
+                                    <th>Revenue</th>
+                                    <th>Cost</th>
+                                    <th>Margin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="data['orders']" t-as="order">
+                                    <tr>
+                                        <td>
+                                            <span t-esc="order['order_name']" />
+                                        </td>
+                                        <td>
+                                            <span t-esc="order['customer_name']" />
+                                        </td>
+                                        <td>
+                                            <span t-esc="order['order_date']"
+                                                t-options='{"widget": "date"}' />
+                                        </td>
+                                        <td>
+                                            <span t-esc="order['revenue']"
+                                                t-options='{"widget": "monetary", "display_currency": user.company_id.currency_id}' />
+                                        </td>
+                                        <td>
+                                            <span t-esc="order['cost']"
+                                                t-options='{"widget": "monetary", "display_currency": user.company_id.currency_id}' />
+                                        </td>
+                                        <td>
+                                            <span t-esc="order['margin']"
+                                                t-options='{"widget": "monetary", "display_currency": user.company_id.currency_id}' />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

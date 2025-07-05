@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <record id="sale_profitability_report_wizard_form_view" model="ir.ui.view">
+            <field name="name">sale.profitability.report.wizard.form</field>
+            <field name="model">sale.profitability.report.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="date_from" />
+                            <field name="date_to" />
+                        </group>
+                        <group>
+                            <field name="product_category_ids" widget="many2many_tags" />
+                            <field name="customer_ids" widget="many2many_tags" />
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_print_pdf" string="Print PDF" type="object"
+                            class="btn-primary" />
+                        <button name="action_print_xlsx" string="Print XLSX" type="object"
+                            class="btn-primary" />
+                        <button string="Cancel" class="btn-secondary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_sale_profitability_report" model="ir.actions.act_window">
+            <field name="name">Sales Profitability Report</field>
+            <field name="res_model">sale.profitability.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_sale_profitability_report"
+            name="Sales Profitability Report"
+            parent="sale.menu_sale_report"
+            action="action_sale_profitability_report"
+            sequence="100" />
+    </data>
+</odoo>
